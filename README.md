@@ -18,5 +18,9 @@ This is used to take a picture of the infected skin area and send it to the Rasp
 **Raspberry Pi Computer** <br>
 This unit contains a trained Machine Learning Model that can classify skin disease images. It will receive the image and display the identified result along with the reasoning for the prediction.
 
-
- 
+## Project Plan
+| Week         | Tasks           |
+| -----------  | -----------     |
+| Week 01      | - Task 01        |
+| Week 02      | Text            |
+| Week 02      | Text            |
