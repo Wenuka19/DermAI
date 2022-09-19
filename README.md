@@ -19,8 +19,13 @@ This is used to take a picture of the infected skin area and send it to the Rasp
 This unit contains a trained Machine Learning Model that can classify skin disease images. It will receive the image and display the identified result along with the reasoning for the prediction.
 
 ## Project Plan
-| Week         | Tasks           |
-| -----------  | -----------     |
-| Week 01      | - Task 01        |
-| Week 02      | Text            |
-| Week 02      | Text            |
+Note that the following plan is fairly optimistic since there can be unexpected delays and changes to the initial plan. There are several weeks left towards the end to account for delays and provide time for thorough testing
+
+| Week | Tasks |
+|:---:|-----------|
+| Week 01| * Obtain all the required components<br>* Learn the fundamentals<br>* Create a GitHub Repository<br>|
+| Week 02| * Assemble the system and test for proper functionality<br>* Find avaialable datasets and finalize a dataset for training<br>* Get the workflow sorted out for training a model, testing a model and loading it to the Raspberry Pi for testing<br>* Develop a GUI for Raspberry PI to capture the images and to do the preditions|
+| Week 03,04 & 05| * Train several models on PC<br>* Load and test it on the Raspberry Pi<br>* Evaluate the performance<br>|
+| Week 06| * Finalize a model for the system<br>* Fine tune it for the skin tone bias<br>* Improve the test set accuracy<br>|
+| Week 07| * Integrate the system to be used as a standalone device by setting up a power unit and a display unit<br>* Test the system with real time data<br>|
+| Remaining Weeks| * Test and further develop the model<br>* Catchup with any delays in prior weeks<br>|
