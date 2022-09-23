@@ -47,8 +47,7 @@ Note that the following plan is fairly optimistic since there can be unexpected 
 <p> I dedicated the first week to learn all the fundamentals required to start this project and to finalize the workflow of training a model, converting a model, loading it to Raspberry Pi and running inference on it.</p>
 
 #### Key Learnings
-* The Computer Science problem I'm trying to solve in this project is an image classification problem. To solve these problems there is a wide variety of techniques avaialable. Following is a comparison of those techniques I did to decide which technique to use.
-[TABLE GOES HERE]
+* The Computer Science problem I'm trying to solve in this project is an image classification problem. To solve these problems there is a wide variety of techniques avaialable. Support Vector Machines(SVM), Convolution Neural Networks(CNN) & K-NN Classifiers are some of them. Out of them CNN seems to provide a very high accuracy. For my application the model needs to identify fine-grained patterns of the images. For these applications the convolution filters get fined tuned in the training process. So I decided to use a CNN for my application
 
 * To implement the above technique Python language will be used since Python is the go-to language used for Machine Learning and Deep Learning. And there are machine learning frameworks avaialable which deals with the complex fundamentals and provides easy to use syntax for the programmer. PyTorch, Tensorflow & Keras are the most popular machine learning frameworks available for Python language. Out of these 3 PyTorch provides an easy to use, flexible and a native environment for the programmer. But Tensorflow seems to have comprehensive ecosystem of community resources, libraries and it has a wide range of tools which are useful for my application. Keras was adopted and integrated into TensorFlow in mid-2017. Also, almost all the resouces I found have used Tensorflow so I decided to use that framework.
 
