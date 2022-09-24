@@ -34,8 +34,8 @@ Note that the following plan is fairly optimistic since there can be unexpected 
 
 | Week | Tasks |
 |:---:|-----------|
-| Week 01| * Obtain all the required components<br>* Learn the fundamentals<br>* Create a GitHub Repository<br>|
-| Week 02| * Assemble the system and test for proper functionality<br>* Find avaialable datasets and finalize a dataset for training<br>* Get the workflow sorted out for training a model, testing a model and loading it to the Raspberry Pi for testing<br>* Develop a GUI for Raspberry PI to capture the images and to do the preditions|
+| Week 01| * Learn the fundamentals<br>* Create a GitHub Repository<br>* Get the workflow sorted out for training a model, testing a model and loading it to the Raspberry Pi for testing<br> |
+| Week 02| * Obtain all the required components<br>* Assemble the system and test for proper functionality<br>* Find avaialable datasets and finalize a dataset for training<br>* Develop a GUI for Raspberry PI to capture the images and to do the preditions|
 | Week 03,04 & 05| * Train several models on PC<br>* Load and test it on the Raspberry Pi<br>* Evaluate the performance<br>|
 | Week 06| * Finalize a model for the system<br>* Fine tune it for the skin tone bias<br>* Improve the test set accuracy<br>|
 | Week 07| * Integrate the system to be used as a standalone device by setting up a power unit and a display unit<br>* Test the system with real time data<br>|
