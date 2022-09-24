@@ -69,4 +69,4 @@ tf_lite_model_file = pathlib.Path('tf_lite01.tflite')
 tf_lite_model_file.write_bytes(tf_lite_model)
 ```
 #### Running Inference on Raspberry Pi
-After getting the Tensorflow Lite model I needed 
+After getting the Tensorflow Lite model I needed to find out how to load it into Raspberry Pi and run inference on it. For this I found (the following)[https://www.tensorflow.org/lite/examples/image_classification/overview] resources. With this I was able to run inference on the Raspberry Pi.
