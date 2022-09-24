@@ -54,3 +54,19 @@ Note that the following plan is fairly optimistic since there can be unexpected 
 * Developing a CNN from scratch for a complex image classification problem like this is difficult when you have a limited amount of computational resources and training data. In such cases a widely used technique is [Transfer Learning](https://machinelearningmastery.com/transfer-learning-for-deep-learning/). In my project also I will use the transfer learning technique to train already available well-trained models for my application domain.
 
 #### Finalized Workflow
+##### Loading a pre trained model and Training it 
+In order to learn and create a workflow for training and testing, I loaded a InceptionV3 model to [Kaggle](https://www.kaggle.com) and trained it for the [DermNet](https://www.kaggle.com/datasets/shubhamgoel27/dermnet) dataset using transfer learning. Here my main goal was to get familiarized with the syntax and process so I did not worry about the accuracy of the predictions.
+
+##### Converting the model to Tensorflow Lite model
+[Tensorflow Lite](https://www.tensorflow.org/lite) is a lightweight framework introduced by Tensforflow to deploy machine learning models on mobile, micrcontrollers and other edge devices. After building and training the Tensorflow model on Google Colab we can use the following code snippet to convert it into a Tensorflow Lite model.
+```
+ # convert the model
+converter = tf.lite.TFLiteConverter.from_keras_model(new_model)
+tf_lite_model = converter.convert()
+
+# save the model
+tf_lite_model_file = pathlib.Path('tf_lite01.tflite')
+tf_lite_model_file.write_bytes(tf_lite_model)
+```
+#### Running Inference on Raspberry Pi
+After getting the Tensorflow Lite model I needed 
