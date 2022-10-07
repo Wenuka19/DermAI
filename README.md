@@ -35,8 +35,8 @@ Note that the following plan is fairly optimistic since there can be unexpected 
 | Week | Tasks |
 |:---:|-----------|
 | Week 01| * Learn the fundamentals<br>* Create a GitHub Repository<br>* Get the workflow sorted out for training a model, testing a model and loading it to the Raspberry Pi for testing<br> |
-| Week 02| * Obtain all the required components<br>* Assemble the system and test for proper functionality<br>* Find avaialable datasets and finalize a dataset for training<br>* Develop a GUI for Raspberry PI to capture the images and to do the preditions|
-| Week 03,04 & 05| * Train several models on PC<br>* Load and test it on the Raspberry Pi<br>* Evaluate the performance<br>|
+| Week 02 & 03| * Obtain all the required components<br>* Assemble the system and test for proper functionality<br>* Develop a GUI for Raspberry PI to capture the images and to do the preditions|
+| Week 04 & 05| * Train several models on PC<br>* Load and test it on the Raspberry Pi<br>* Evaluate the performance<br>|
 | Week 06| * Finalize a model for the system<br>* Fine tune it for the skin tone bias<br>* Improve the test set accuracy<br>|
 | Week 07| * Integrate the system to be used as a standalone device by setting up a power unit and a display unit<br>* Test the system with real time data<br>|
 | Remaining Weeks| * Test and further develop the model<br>* Catchup with any delays in prior weeks<br>|
@@ -77,3 +77,8 @@ There was an unexpected delay in obtaining the required parts for my project. By
 The next challenge was to develop a GUI to do the predictions. Since I'm already using Python language to do the predictions I decided to use [Tkinter](https://docs.python.org/3/library/tkinter.html) which is a popular Python package for GUI development. It is very beginner friendly and provides only basic functionalities of a GUI. After making the initial frames I couldn't find a way to place the camera-view inside one window and let the user capture an image with a button click. Even in [Raspberry Pi camera documentation](https://www.raspberrypi.com/documentation/accessories/camera.html) they have not mentioned a way to place the camera view inside a Tkinter window. Finally I came across [this](https://pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/) tutorial which implements a workaround to do what I needed. Finally I was able to develop the GUI for the app. Then I used a simple CNN trained on the dataset and converted it into a Tensorflow lite model and tried to make predictions on the images captured by the Raspberry Pi camera. This shows the top 5 predictions along with the probabilities. Since the model is not properly tuned the predictions are not accurate but now the skeleton of my project is complete.
 
 #### Demo(As of 4<sup>th</sup> October)
+Since there's no real skin disease images avaiable to capture I used a google image pointed at the camera for demonstration. Now in the coming weeks I can fine tune the Tensorflow model to get a higher accuracy.
+
+[Week02.webm](https://user-images.githubusercontent.com/89344987/194615943-785368d4-1ea5-48d2-aee0-7a020114649e.webm)
+
+
