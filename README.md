@@ -81,4 +81,6 @@ Since there's no real skin disease images avaiable to capture I used a google im
 
 [Week02.webm](https://user-images.githubusercontent.com/89344987/194615943-785368d4-1ea5-48d2-aee0-7a020114649e.webm)
 
+### Week 04 (04<sup>th</sup> October to 11<sup>th</sup> October)
+This week was totally dedicated to research about the dataset to use and to decide the model architectures I should try on. And I was able to findout following information. 
 
