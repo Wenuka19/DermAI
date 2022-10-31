@@ -36,8 +36,8 @@ Note that the following plan is fairly optimistic since there can be unexpected 
 |:---:|-----------|
 | Week 01| * Learn the fundamentals<br>* Create a GitHub Repository<br>* Get the workflow sorted out for training a model, testing a model and loading it to the Raspberry Pi for testing<br> |
 | Week 02 & 03| * Obtain all the required components<br>* Assemble the system and test for proper functionality<br>* Develop a GUI for Raspberry PI to capture the images and to do the preditions|
-| Week 04 & 05| * Train several models on PC<br>* Load and test it on the Raspberry Pi<br>* Evaluate the performance<br>|
-| Week 06| * Finalize a model for the system<br>* Fine tune it for the skin tone bias<br>* Improve the test set accuracy<br>|
+| Week 04 | * Exploring about CNN models available<br>* Finalize the set of steps to follow when training the model<br>|
+| Week 05 & 06| * Finalize a model for the system<br>* Fine tune it for the skin tone bias<br>* Improve the test set accuracy<br>|
 | Week 07| * Integrate the system to be used as a standalone device by setting up a power unit and a display unit<br>* Test the system with real time data<br>|
 | Remaining Weeks| * Test and further develop the model<br>* Catchup with any delays in prior weeks<br>|
 
@@ -82,5 +82,16 @@ Since there's no real skin disease images avaiable to capture I used a google im
 [Week02.webm](https://user-images.githubusercontent.com/89344987/194615943-785368d4-1ea5-48d2-aee0-7a020114649e.webm)
 
 ### Week 04 (04<sup>th</sup> October to 11<sup>th</sup> October)
-This week was totally dedicated to research about the dataset to use and to decide the model architectures I should try on. And I was able to findout following information. 
+This week was totally dedicated to make the design decisions of the deep learning model of my project. The main decision I had to take was the architecture of the model. And the most recommended approach for this was to read some research papers in the same problem domain and start with a model architecture implemented by them. I came across these research papers and decided to analyze them to make this design decision. 
+* Vipin Venugopal, Justin Joseph, M. Vipin Das, Malaya Kumar Nath,
+An EfficientNet-based modified sigmoid transform for enhancing dermatological macro-images of melanoma and nevi skin lesions,
+Computer Methods and Programs in Biomedicine, Volume 222, 2022, 106935, ISSN 0169-2607, https://doi.org/10.1016/j.cmpb.2022.106935.
+* [Evaluating Deep Neural Networks Trained on Clinical Images in Dermatology with the Fitzpatrick 17k Dataset](https://arxiv.org/pdf/2104.09957v1.pdf)
+* [Dermatologist-level classification of skin cancer with deep neural networks](https://www.nature.com/articles/nature21056.epdf?author_access_token=8oxIcYWf5UNrNpHsUHd2StRgN0jAjWel9jnR3ZoTv0NXpMHRAJy8Qn10ys2O4tuPakXos4UhQAFZ750CsBNMMsISFHIKinKDMKjShCpHIlYPYUHhNzkn6pSnOCt0Ftf6)
+
+These papers have implemented **VGG-16, EfficientNet, InceptionV3** models. Also a popular CNN model used in embedded devices is MobileNet architecture. So I decided to use these models and select the best one for my use case.
+Another problem I had was deciding the next steps in the training process. As I found out from the internet, there's no straightforward set of steps we should follow when training a ML model. But I came across [a very informative article](http://karpathy.github.io/2019/04/25/recipe/) written by an expert in deep learning, explaining his experience and the method he use when training a model. I decided to refer to his method when training my model.
+
+
+
 
