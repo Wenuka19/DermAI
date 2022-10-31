@@ -37,8 +37,8 @@ Note that the following plan is fairly optimistic since there can be unexpected 
 | Week 01| * Learn the fundamentals<br>* Create a GitHub Repository<br>* Get the workflow sorted out for training a model, testing a model and loading it to the Raspberry Pi for testing<br> |
 | Week 02 & 03| * Obtain all the required components<br>* Assemble the system and test for proper functionality<br>* Develop a GUI for Raspberry PI to capture the images and to do the preditions|
 | Week 04 | * Exploring about CNN models available<br>* Finalize the set of steps to follow when training the model<br>|
-| Week 05 & 06| * Finalize a model for the system<br>* Fine tune it for the skin tone bias<br>* Improve the test set accuracy<br>|
-| Week 07| * Integrate the system to be used as a standalone device by setting up a power unit and a display unit<br>* Test the system with real time data<br>|
+| Week 05 | * Set up a full training + evaluation skeleton and gain trust in its correctness<br>|
+| Week 06 & 07| * Integrate the system to be used as a standalone device by setting up a power unit and a display unit<br>* Test the system with real time data<br>|
 | Remaining Weeks| * Test and further develop the model<br>* Catchup with any delays in prior weeks<br>|
 
 ## Weekly Reports
