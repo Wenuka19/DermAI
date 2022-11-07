@@ -39,7 +39,7 @@ Note that the following plan is fairly optimistic since there can be unexpected 
 | Week 04 | * Exploring about CNN models available<br>* Finalize the set of steps to follow when training the model<br>|
 | Week 05 | * Set up a full training + evaluation skeleton and gain trust in its correctness<br>|
 | Week 06 | * Finalize the dataset<br>* Verify accuracy, loss and other metrics for the particular dataset<br>|
-| Remaining Weeks | * Test and further develop the model<br>* Catchup with any delays in prior weeks<br>|
+| Week 07 & 08 | * Train a vgg-16 model for the finalized dataset<br>* Fine-tune the model<br>|
 
 ## Weekly Reports
 
@@ -125,3 +125,4 @@ I used 90% of the dataset for training, 5% for validation and 5% for testing. Af
   <img src="/assets/images/vgg_model1_heatmap.png" width="400" /> 
 </p>
 </div>
+To save and load models, weights and other details I use [wandb](https://wandb.ai/) platform. This can also be used to visualize and compare training between different models.
