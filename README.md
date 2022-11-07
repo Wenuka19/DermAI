@@ -104,7 +104,7 @@ Now that the training, evaluating skeleton is finalized I tried to finalize a da
 |:---:|:---:|:---:|
 | Contains around 19,500, out of which approximately 15,500 have been split in the training set and the remaining in the test set. | Containts around 656 images representing 570 unique patients. | Contains 16,577 clinical images |
 | Data consists of images of 23 types of skin diseases | Data consists of images of 2 main skin conditions(benign  & malignant) | Data consists of 114 skin conditions with at least 53 images per skin condition |
-| Dataset does not contain any skin condition label | Dataset contains skin condition labels and skin type labels based on the [Fitzpatrick](https://dermnetnz.org/topics/skin-phototype) scoring system | Dataset contains skin condition labels and skin type labels based on the [Fitzpatrick (https://dermnetnz.org/topics/skin-phototype) scoring system |
+| Dataset does not contain any skin condition label | Dataset contains skin condition labels and skin type labels based on the [Fitzpatrick](https://dermnetnz.org/topics/skin-phototype) scoring system | Dataset contains skin condition labels and skin type labels based on the [Fitzpatrick](https://dermnetnz.org/topics/skin-phototype) scoring system |
 <br>
 So this shows that inorder to build a multiclass classifier which tries to overcome the skin tone bias in predictions, I will have to use the Fitzpatrick17k dataset. 
 I had to spend the rest of the week to sort out the dataset and train it for a simple model to verify that accuracy, loss metrics are correct for this particular dataset.
@@ -113,4 +113,15 @@ I had to spend the rest of the week to sort out the dataset and train it for a s
 
 Now I had to decide model to use for transfer learning this particular dataset. 
 The [research](https://arxiv.org/pdf/2104.09957v1.pdf) paper which used the Fitzpatrick17k dataset suggests a VGG-16 model to train. So I decided to use that model as a starting process for my implementation aswell.
-The model specified in that research paper the last fully connected 1000 unit layer with the following sequence of layers: a fully connected 256 unit layer, a ReLU layer, dropout layer with a 40% change of dropping, a layer with the number of predicted categories, and finally a softmax layer. As a result, the model has *135,338,674 parameters* of which *1,078,130 are trainable*.[Figure of the model](/assets/images/vgg_model1.png)
+The model specified in that research paper the last fully connected 1000 unit layer with the following sequence of layers: a fully connected 256 unit layer, a ReLU layer, dropout layer with a 40% change of dropping, a layer with the number of predicted categories, and finally a softmax layer. As a result, the model has *135,338,674 parameters* of which *1,078,130 are trainable*.[Figure of the model](/assets/images/vgg_model1.png)<br>
+I used 90% of the dataset for training, 5% for validation and 5% for testing. After training for 25 epochs I was able to obtain following results.<br>
+* Training Accuracy - 40.19%
+* Validation Accuracy - 33.62%
+* Test Set Accuracy - 29%<br>
+#### Training Graphs and the Heatmaps for the first attempt 
+<div align = "center">
+<p float="middle">
+  <img src="/assets/images/vgg_model1_graphs.png" width="400" />
+  <img src="/assets/images/vgg_model1_heatmap.png" width="400" /> 
+</p>
+</div>
