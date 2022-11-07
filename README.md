@@ -125,4 +125,5 @@ I used 90% of the dataset for training, 5% for validation and 5% for testing. Af
   <img src="/assets/images/vgg_model1_heatmap.png" width="400" /> 
 </p>
 </div>
-To save and load models, weights and other details I use [wandb](https://wandb.ai/) platform. This can also be used to visualize and compare training between different models.
+
+To save and load models, weights and other details I use [Wandb](https://wandb.ai) platform. This can also be used to visualize and compare training between different models.
