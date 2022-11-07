@@ -92,9 +92,16 @@ Computer Methods and Programs in Biomedicine, Volume 222, 2022, 106935, ISSN 016
 These papers have implemented **VGG-16, EfficientNet, InceptionV3** models. Also a popular CNN model used in embedded devices is MobileNet architecture. So I decided to use these models and select the best one for my use case.
 Another problem I had was deciding the next steps in the training process. As I found out from the internet, there's no straightforward set of steps we should follow when training a ML model. But I came across [a very informative article](http://karpathy.github.io/2019/04/25/recipe/) written by an expert in deep learning, explaining his experience and the method he use when training a model. I decided to refer to his method when training my model.
 
-### Week 05 (11<sup>th</sup> September to 18<sup>th</sup> October)
+### Week 05 (11<sup>th</sup> October to 18<sup>th</sup> October)
 From this week onwards my main focus is to train and fine tune the model on PC for the datasets available. As I read in the tutorial article, the first step is to set up a full training + evaluation skeleton and gain trust in its correctness. For this I use a simple toy model. 
 And I verifed that the code I wrote to load, input, normalize, train, and predict the model are correct. Verification of the inputs was done by vizualizing the image data right before the input to the model. 
 After that I overfitted the model to training data, to make sure that I can obtain the maxiumum attainable accuracy for this dataset. After that I did some predictions to verify that the accuracy value aligns with the predictions. Further I visualized my predictions using a Confusion matrix to identify which labels are misclassified. By the end of the 5<sup>th</sup> week I was able to verify my training and evaluation skeleton.
 
+### Week 06 (18<sup>th</sup> October to 25<sup>th</sup> October)
+Now that the training, evaluating skeleton is finalized I tried to finalize a dataset to train my model. So far I was able to find 3 datasets. Below is a small summary about each dataset.
 
+| Dataset 01 [Dermnet](https://www.kaggle.com/datasets/shubhamgoel27/dermnet) | Dataset 02 [DDI Dataset](https://ddi-dataset.github.io/) | Dataset 03 [Fitzpatrick17k](https://github.com/mattgroh/fitzpatrick17k) |
+|:---:|:---:|:---:|
+| Contains around 19,500, out of which approximately 15,500 have been split in the training set and the remaining in the test set. | Containts around 656 images representing 570 unique patients. | Contains 16,577 clinical images |
+| Data consists of images of 23 types of skin diseases | Data consists of images of 2 main skin conditions(benign  & malignant) | Data consists of 114 skin conditions with at least 53 images per skin condition |
+| Dataset does not contain any skin condition label | Dataset contains skin condition labels and skin type labels based on the [Fitzpatrick](https://dermnetnz.org/topics/skin-phototype) scoring system | Dataset contains skin condition labels and skin type labels based on the [Fitzpatrick](https://dermnetnz.org/topics/skin-phototype) scoring system |
