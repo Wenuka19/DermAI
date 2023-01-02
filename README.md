@@ -40,6 +40,9 @@ Note that the following plan is fairly optimistic since there can be unexpected 
 | Week 05 | * Set up a full training + evaluation skeleton and gain trust in its correctness<br>|
 | Week 06 | * Finalize the dataset<br>* Verify accuracy, loss and other metrics for the particular dataset<br>|
 | Week 07 & 08 | * Train a vgg-16 model for the finalized dataset<br>* Fine-tune the model<br>|
+| Week 09 | * Fixed the errors in the training process<br>|
+| Week 10 | * Fine tuning the model<br>|
+| Week 11 | * Obtain the maximum possible accuracy<br>|
 
 ## Weekly Reports
 
