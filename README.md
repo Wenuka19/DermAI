@@ -163,6 +163,9 @@ I was able to find a Raspberry Pi model 3B and I tried to setup my project in th
 With the help of many online resources I was able to build the android app, put a multi class classification model and do some predictions.
 
 #### Demo(As of 26<sup>th</sup> December)
-The app looks like below in the emulator. It displays the highest confident result along with the percentage.
+The app looks like below in the emulator. It displays the highest confident result along with the percentage. Note that the model used in this is a custom model used for different use case.
 
+[Mobile_App.mp4](https://user-images.githubusercontent.com/89344987/210223484-44402679-ed00-46f1-bd63-ace5d8d21cf4.mp4)
 
+### Week 13 (26<sup>th</sup> December to 2<sup>nd</sup> December)
+Now that the mobile app is finalized I tried to convert the vgg_16 model I trained earlier to a `.tflite` model. This caused some unexpected issues. When I run the code snippet which converts the model to a `.tflite` model the colab runs out of RAM. I was using the free version of colab which gives 12GB memory. I looked for solutions in online forums and tried limiting the memory growth, converting using a saved model, converting after freeing up the memory by deleting some data and reducing the batch size as mentioned in the given forums. [solution 01](https://github.com/tensorflow/models/issues/1817), [solution 02](https://github.com/tensorflow/tensorflow/issues/40760). But none of them seem to work. Also I was not able to find a project done by converting a vgg_16 model to a `.tflite` model. And it was mentioned in the officia
