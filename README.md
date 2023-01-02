@@ -149,7 +149,14 @@ After getting a considerable accuracy for the base model, I tried to do some fin
 * Training Accuracy - 43%
 * Validation Accuracy - 35%<br>
 
-The other adjustments I tried were unfreezing more layers, adjusting the learning rate, changing the architecture of the model and trying a different optimizer. But non of them seem to improve the accuracy more.
+The other adjustments I tried were unfreezing more layers, adjusting the learning rate, changing the architecture of the model and trying a different optimizer. But none of them seem to improve the accuracy more.
 
 ### Week 11 (22<sup>nd</sup> November to 29<sup>th</sup> November)
-Unfortunately, my Raspberry PI malfunctioned. It doesn't bootup when it is powered up. I tried several debugging methods me
+Unfortunately, my Raspberry PI malfunctioned. It doesn't bootup when it is powered up. I tried several debugging methods methods suggested in online forums but none of them seem to work for me. As it is suggested in https://forums.raspberrypi.com/viewtopic.php?t=58151 the main indicator that there exists an issue is that the ACT LED does not repeatedly blink after the Rpi is powered up. According to the online forums this is happening when the RPI is unable to read from the SD card. I checked it with a different SD card but that also didn't seem to work. I cannot recall anything I did out of ordinary which could cause the RPI to malfunction. There were no physical damages to the board aswell. After many attempts, I decided to look for another Rpi board. And since the end semester exams were coming up I had to pause the project work for some time. 
+
+#### (30<sup>th</sup> November to 18<sup>th</sup> December)
+There were no significant progress in the project work due to end-semester examination. I was still looking for an alternative Raspberry PI and was also trying a few debugging methods.
+
+
+### Week 12 (19<sup>th</sup> December to 26<sup>th</sup> December)
+I was able to find a Raspberry Pi model 3B and I tried to setup my project in that. But it did not support the camera I already had. The camera interface is not shown in the Raspberry Pi configuration menu. It doesn't recognize the camera when connected. At this point I decided not to use a Rasberry Pi. Instead I decided to develop a mobile app 
