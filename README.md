@@ -159,10 +159,10 @@ There were no significant progress in the project work due to end-semester exami
 
 
 ### Week 12 (19<sup>th</sup> December to 26<sup>th</sup> December)
-I was able to find a Raspberry Pi model 3B and I tried to setup my project in that. But it did not support the camera I already had. The camera interface is not shown in the Raspberry Pi configuration menu. It doesn't recognize the camera when connected. At this point I decided not to use a Rasberry Pi. Instead I decided to develop an android app which can be used as an image classifier. This meant there would be some restrictions in the computing power but since almost every smartphone in the market market today has a very quality camera I can use high quality images for predictions. 
+I was able to find a Raspberry Pi model 3B and I tried to setup my project in that. But it did not support the camera I already had. The camera interface is not shown in the Raspberry Pi configuration menu. It doesn't recognize the camera when connected. At this point I decided not to use a Rasberry Pi. Instead I decided to develop an android app which can be used as an image classifier. This meant there would be some restrictions in the computing power but since almost every smartphone in the market market today has a very quality camera I can use high quality images for predictions. Also the setup and demonstration will be much easier.
 With the help of many online resources I was able to build the android app, put a multi class classification model and do some predictions.
 
-#### Demo(As of 4<sup>th</sup> October)
+#### Demo(As of 26<sup>th</sup> December)
 The app looks like below in the emulator. It displays the highest confident result along with the percentage.
 
 
