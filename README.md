@@ -127,3 +127,29 @@ I used 90% of the dataset for training, 5% for validation and 5% for testing. Af
 </div>
 
 To save and load models, weights and other details I use [Wandb](https://wandb.ai) platform. This can also be used to visualize and compare training between different models.
+
+### Week 09 (08<sup>th</sup> November to 15<sup>th</sup> November)
+As I was training the model I noticed that the accuracy of the model keeps increasing in an unusual manner. But the predictions of it to external images was not accurate. This was because when I was creating the datasets from the image directory, it kept getting different sets of images for test,validation and train datasets. As a result I have trained the model to the whole dataset. This lead to the model overfitting to the whole dataset. I used the following method to create datasets from the image directory.
+
+```
+#Load data as numpy arrays
+train_data = tf.keras.utils.image_dataset_from_directory(train_data_dir,label_mode='categorical',  image_size=IMG_SIZE,batch_size=2,)
+```
+So op the 09<sup>th</sup> week I had to redo all the work I did on the previous week. This time I uploaded the dataset in 3 separate folders called train,test and validation. This way there won't be a mixup between the datasets.
+```
+#Load data as numpy arrays
+train_data = tf.keras.utils.image_dataset_from_directory(train_data_dir,label_mode='categorical',  image_size=IMG_SIZE,batch_size=2,)
+val_data = tf.keras.utils.image_dataset_from_directory(val_data_dir,label_mode='categorical',  image_size=IMG_SIZE,batch_size=2,)
+test_data = tf.keras.utils.image_dataset_from_directory(test_data_dir,label_mode='categorical',  image_size=IMG_SIZE,batch_size=2,)
+```
+And then I retrained the same model to obtain an accuracy value close to what I got on the previous week.
+
+### Week 10 (15<sup>th</sup> November to 22<sup>nd</sup> November)
+After getting a considerable accuracy for the base model, I tried to do some fine-tuning to the model and improve the accuracy. First I unfroze the last 15 layers of the model and retrained the model with a learning rate of 10<sup>-4</sup>. This improved the accuracy of the slightly. The values I obtained are as follows.
+* Training Accuracy - 43%
+* Validation Accuracy - 35%<br>
+
+The other adjustments I tried were unfreezing more layers, adjusting the learning rate, changing the architecture of the model and trying a different optimizer. But non of them seem to improve the accuracy more.
+
+### Week 11 (22<sup>nd</sup> November to 29<sup>th</sup> November)
+Unfortunately, my Raspberry PI malfunctioned. It doesn't bootup when it is powered up. I tried several debugging methods me
