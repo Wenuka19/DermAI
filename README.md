@@ -170,7 +170,7 @@ The app looks like below in the emulator. It displays the highest confident resu
 
 [Mobile_App.mp4](https://user-images.githubusercontent.com/89344987/210223484-44402679-ed00-46f1-bd63-ace5d8d21cf4.mp4)
 
-### Week 13 (26<sup>th</sup> December to 2<sup>nd</sup> December)
+### Week 13 (26<sup>th</sup> December to 2<sup>nd</sup> January)
 Now that the mobile app is finalized I tried to convert the vgg_16 model I trained earlier to a `.tflite` model. This caused some unexpected issues. When I run the code snippet which converts the model to a `.tflite` model the colab runs out of RAM. I was using the free version of colab which gives 12GB memory. I looked for solutions in online forums and tried limiting the memory growth, converting using a saved model, converting after freeing up the memory by deleting some data and reducing the batch size as mentioned in the given forums. [solution 01](https://github.com/tensorflow/models/issues/1817), [solution 02](https://github.com/tensorflow/tensorflow/issues/40760). But none of them seem to work. Also I was not able to find a project done by converting a vgg_16 model to a `.tflite` model. And it was mentioned in the [official documentation of TensorFlow lite](https://www.tensorflow.org/lite/guide/ops_compatibility) that certain types of models cannot be converted to `.tflite` format. So I decided that this model may not be usable in my project. Then I tried using a [MobileNetV3](https://paperswithcode.com/method/mobilenetv3) and a [InceptionV3](https://keras.io/api/applications/inceptionv3/) and I was able to convert both of them to `.tflite` models. Out of the two InceptionV3 has been used for complex image classification tasks like my project and it showed better results during the initial traning. So I decided to go ahead with that architecture. Since I used transfer learning method to train my model, I replaced the last layer of the InceptionV3 model with the following layers.
 * Dense Layer with 1024 nodes.<br>
 * Dense Layer with `no. of classes` nodes.<br>
@@ -194,8 +194,10 @@ And for the test dataset with `weighted average` the following accuracy metrics 
 #### Training Graphs and the Heatmap after overfitting the InceptionV3 model 
 <div align = "center">
 <p float="middle">
-  <img src="/assets/images/vgg_model1_graphs.png" width="400" />
-  <img src="/assets/images/vgg_model1_heatmap.png" width="400" /> 
+  <img src="/assets/images/Inceptionv3 attempt[Overfitting].png" width="270" />
+  <img src="/assets/images/InceptionV3_overfitted_heatmap.png" width="400" /> 
 </p>
 </div>
 
+### Week 14 (02<sup>nd</sup> January to 09<sup>th</sup> January)
+This week and the rest of the time will be mainly focused towards the generalizing the model to avoid overfitting. 
