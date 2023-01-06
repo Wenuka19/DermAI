@@ -174,6 +174,28 @@ The app looks like below in the emulator. It displays the highest confident resu
 Now that the mobile app is finalized I tried to convert the vgg_16 model I trained earlier to a `.tflite` model. This caused some unexpected issues. When I run the code snippet which converts the model to a `.tflite` model the colab runs out of RAM. I was using the free version of colab which gives 12GB memory. I looked for solutions in online forums and tried limiting the memory growth, converting using a saved model, converting after freeing up the memory by deleting some data and reducing the batch size as mentioned in the given forums. [solution 01](https://github.com/tensorflow/models/issues/1817), [solution 02](https://github.com/tensorflow/tensorflow/issues/40760). But none of them seem to work. Also I was not able to find a project done by converting a vgg_16 model to a `.tflite` model. And it was mentioned in the [official documentation of TensorFlow lite](https://www.tensorflow.org/lite/guide/ops_compatibility) that certain types of models cannot be converted to `.tflite` format. So I decided that this model may not be usable in my project. Then I tried using a [MobileNetV3](https://paperswithcode.com/method/mobilenetv3) and a [InceptionV3](https://keras.io/api/applications/inceptionv3/) and I was able to convert both of them to `.tflite` models. Out of the two InceptionV3 has been used for complex image classification tasks like my project and it showed better results during the initial traning. So I decided to go ahead with that architecture. Since I used transfer learning method to train my model, I replaced the last layer of the InceptionV3 model with the following layers.
 * Dense Layer with 1024 nodes.<br>
 * Dense Layer with `no. of classes` nodes.<br>
-As I found in various online resources `RMSProp` optimizer with the learning rate of 0.0001 seem to give very good results for the InceptionV3 model. So I decided to use the same optimizer for my use case. The final model looked like following.
 
-As the first step mentioned in the [article](http://karpathy.github.io/2019/04/25/recipe/) I used as my referenced for the model training I started to overfit the model.[Figure of the model](/assets/images/vgg_model1.png)<br> 
+As I found in various online resources `RMSProp` optimizer with the learning rate of 0.0001 seem to give very good results for the InceptionV3 model. So I decided to use the same optimizer for my use case. [Figure of the model](/assets/images/InceptionV3_model.png)<br>
+As the first step mentioned in the [article](http://karpathy.github.io/2019/04/25/recipe/) I used as my referenced for the model training I started to overfit the model. The base InceptionV3 model was freezed with imagenet weights and this gave following numbers of parameters to train.
+* Total params: 40,795,026<br>
+* Trainable params: 18,992,242<br>
+* Non-trainable params: 21,802,784<br>
+
+With the above hyperparameters I trained the model for 30 epochs and was able to overfit the model with the following accuracy values.
+* Training Accuracy - 98.30%<br>
+* Validation Accuracy - 28.04%<br>
+* Test Accuracy - 30.46%<br>
+
+And for the test dataset with `weighted average` the following accuracy metrics were obtained.
+* precision : 0.35<br>
+* recall : 0.30<br>
+* f1-score : 0.30<br>
+
+#### Training Graphs and the Heatmap after overfitting the InceptionV3 model 
+<div align = "center">
+<p float="middle">
+  <img src="/assets/images/vgg_model1_graphs.png" width="400" />
+  <img src="/assets/images/vgg_model1_heatmap.png" width="400" /> 
+</p>
+</div>
+
