@@ -215,5 +215,10 @@ Then I oversampled the classes with few number of images to get an average of ab
 * Precision - 0.41
 * Recall - 0.41
 * F1 Score - 0.40<br> 
+
 Then I tried to implement [class_weights](https://www.tensorflow.org/tutorials/structured_data/imbalanced_data) when training the model. This uses a weight value when calculating the loss function. This weight value is calculated according to the number of samples per class so that the loss function gets optimized more for data with low no. of samples per class. This didn't seem to improve the accuracy of the model. So I decided to go finalize this model.<br>
 Even though this accuracy may seem pretty low, average accuracy of a dermalogists' prediction for a disease just by visual inspection is also about 65%. So I think my model performs moderately well for the dataset.
+
+#### Final Demonstration
+[Final_Demo.mp4](https://user-images.githubusercontent.com/89344987/212349741-c80d3bd2-94c7-421c-ad6a-b6030a8ffee6.mp4)
+
