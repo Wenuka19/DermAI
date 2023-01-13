@@ -183,7 +183,7 @@ Right before the val_loss start to increase when training, I was able to obtain 
 * Validation Accuracy - 37%
 * Test Set Accuracy - 39%<br>
 
-### Week 14 (02<sup>nd</sup> January to 09<sup>th</sup> January)
+### Week 14 & 15(02<sup>nd</sup> January to 15<sup>th</sup> January)
 Even after converting the model to `.tflie` I was able to obtain same accuracy, f1-score values for the test dataset. This verified that the conversion process doesn't reduce accuracy.
 This week and the rest of the time will be mainly focused towards the generalizing the model to avoid overfitting. As I found in many online resources the first step to reduce overfitting is to get more data. But in my case it is a bit difficult to get more data from a reliable resource. 
 When I observed the number of samples per class I saw that the dataset is heavily unbalanced.
