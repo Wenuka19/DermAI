@@ -177,36 +177,23 @@ So I decided to go ahead with that architecture. Since I used transfer learning 
 * Dense Layer with `no. of classes` nodes.<br>
 
 As I found in various online resources `Adam` optimizer with the learning rate of 0.0001 seem to give very good results for the `MobileNet` model. So I decided to use the same optimizer for my use case. [Figure of the model](/assets/images/InceptionV3_model.png)<br>
-As the first step mentioned in the [article](http://karpathy.github.io/2019/04/25/recipe/) I used as my reference for the model training I started to overfit the model. The base InceptionV3 model was freezed with imagenet weights and this gave following numbers of parameters to train.
-* Total params: 40,795,026<br>
-* Trainable params: 18,992,242<br>
-* Non-trainable params: 21,802,784<br>
 
-With the above hyperparameters I trained the model for 30 epochs and was able to overfit the model with the following accuracy values.
-* Training Accuracy - 98.30%<br>
-* Validation Accuracy - 28.04%<br>
-* Test Accuracy - 30.46%<br>
-
-And for the test dataset with `weighted average` the following accuracy metrics were obtained.
-* precision : 0.35<br>
-* recall : 0.30<br>
-* f1-score : 0.30<br>
-
-#### Training Graphs and the Heatmap after overfitting the InceptionV3 model 
-<div align = "center">
-<p float="middle">
-  <img src="/assets/images/Inceptionv3 attempt[Overfitting].png" width="270" />
-  <img src="/assets/images/InceptionV3_overfitted_heatmap.png" width="400" /> 
-</p>
-</div>
+Right before the val_loss start to increase when training, I was able to obtain the following accuracy values for the MobileNet model.
+* Training Accuracy - 95.02%
+* Validation Accuracy - 37%
+* Test Set Accuracy - 39%<br>
 
 ### Week 14 (02<sup>nd</sup> January to 09<sup>th</sup> January)
 Even after converting the model to `.tflie` I was able to obtain same accuracy, f1-score values for the test dataset. This verified that the conversion process doesn't reduce accuracy.
-This week and the rest of the time will be mainly focused towards the generalizing the model to avoid overfitting. As I found in many online resources the first step to reduce overfitting is to get more data. But in my case it is a bit difficult to get more data from a reliable resource. The other way to avoid overfitting is by adding more data using [Data Augmentation.](https://www.analyticsvidhya.com/blog/2021/05/image-classification-with-tensorflow-data-augmentation-on-streaming-data-part-2/#:~:text=What%20is%20Data%20Augmentation%3F,Image%20flip%2C%20and%20many%20more.). I used the Tensorflow's [ImageDataGenerator](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator) API to do image augmentations while training.
+This week and the rest of the time will be mainly focused towards the generalizing the model to avoid overfitting. As I found in many online resources the first step to reduce overfitting is to get more data. But in my case it is a bit difficult to get more data from a reliable resource. 
+When I observed the number of samples per class I saw that the dataset is heavily unbalanced.
+This is shown in the graph below.
+![train_dataset](https://user-images.githubusercontent.com/89344987/211035094-8aa24cde-01fd-412b-a3b1-021f0354a7be.png)
+To overcome this imbalance I tried implementing [Data Augmentation.](https://www.analyticsvidhya.com/blog/2021/05/image-classification-with-tensorflow-data-augmentation-on-streaming-data-part-2/#:~:text=What%20is%20Data%20Augmentation%3F,Image%20flip%2C%20and%20many%20more.). I used the Tensorflow's [ImageDataGenerator](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator) API to do image augmentations while training.
 I applied the following augmentations to the datasets.
 ```
 train_datagen = ImageDataGenerator(
-    preprocessing_function=preprocess_input,  # InceptionV3 image preprocessing
+    preprocessing_function=preprocess_input,
     horizontal_flip = True,
     width_shift_range = 0.2,
     height_shift_range = 0.2,
@@ -222,8 +209,11 @@ test_datagen = ImageDataGenerator(
     preprocessing_function=preprocess_input   # InceptionV3 image preprocessing
 )
 ```
-But this didn't decrease the val_accuracy. Also it affected the training loss aswell.<br>
-When I observed the number of samples per class I saw that the dataset is heavily unbalanced.
-This is shown in the graph below.
-![train_dataset](https://user-images.githubusercontent.com/89344987/211035094-8aa24cde-01fd-412b-a3b1-021f0354a7be.png)
-As a solution to this I tried to implement [class_weights](https://www.tensorflow.org/tutorials/structured_data/imbalanced_data) when training the model. This uses a weight value when calculating the loss function. This weight value is calculated according to the number of samples per class so that the loss function gets optimized more for data with low no. of samples per class. 
+Then I oversampled the classes with few number of images to get an average of about 180 images per class. After training for this dataset, I got the following accuracy values.
+* Training Accuracy - 93%
+* Validation Accuracy - 40%
+* Precision - 0.41
+* Recall - 0.41
+* F1 Score - 0.40<br> 
+Then I tried to implement [class_weights](https://www.tensorflow.org/tutorials/structured_data/imbalanced_data) when training the model. This uses a weight value when calculating the loss function. This weight value is calculated according to the number of samples per class so that the loss function gets optimized more for data with low no. of samples per class. This didn't seem to improve the accuracy of the model. So I decided to go finalize this model.<br>
+Even though this accuracy may seem pretty low, average accuracy of a dermalogists' prediction for a disease just by visual inspection is also about 65%. So I think my model performs moderately well for the dataset.
